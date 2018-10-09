@@ -10,6 +10,7 @@ django = "*"
 ipython = "*"
 jupyter = "*"
 "py4j" = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.6"
