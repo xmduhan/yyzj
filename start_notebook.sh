@@ -1,2 +1,2 @@
 #!/bin/bash
-jupyter notebook --ip 127.0.0.1 --port 9999 
+jupyter notebook --port 9999 
