@@ -1,2 +1,4 @@
 gateway/
+wav/
 .ipynb_checkpoints/
+db.sqlite3
