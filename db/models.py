@@ -13,6 +13,7 @@ class LfasrModel(models.Model):
     message = models.CharField(max_length=1024, null=True, blank=True)
     status = models.IntegerField(null=True, blank=True)
     desc = models.CharField(max_length=1024)
+    data = models.TextField(null=True, blank=True)
 
 
 class BatchModel(models.Model):
