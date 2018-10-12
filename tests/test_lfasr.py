@@ -2,11 +2,11 @@
 # encoding: utf-8
 
 import environment
-from lfasr import add_lfasr_task
+import lfasr
 del environment
 
 
 def test_add_task():
     """ """
-    lfasr = add_lfasr_task('wav/test.wav')
-    print(lfasr.md5)
+    lfasr_model = lfasr.add_task('wav/test.wav')
+    print(lfasr_model.md5)

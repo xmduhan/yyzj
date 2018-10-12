@@ -11,8 +11,6 @@ class LfasrModel(models.Model):
     step = models.CharField(max_length=32, choices=(('upload', u'上传'), ('processing', u'处理中'), ('finish', u'完成')))
     code = models.IntegerField(null=True, blank=True)
     message = models.CharField(max_length=1024, null=True, blank=True)
-    status = models.IntegerField(null=True, blank=True)
-    desc = models.CharField(max_length=1024)
     data = models.TextField(null=True, blank=True)
 
 
