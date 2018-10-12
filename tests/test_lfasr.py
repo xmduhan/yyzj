@@ -6,7 +6,7 @@ from lfasr import add_lfasr_task
 del environment
 
 
-def test_add_lfasr_task():
+def test_add_task():
     """ """
     lfasr = add_lfasr_task('wav/test.wav')
     print(lfasr.md5)

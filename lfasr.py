@@ -49,7 +49,7 @@ def query_progress(task_id):
         progress = lc.lfasrGetProgress(task_id)
     except Exception as e:
         return read_api_exception(e)
-    data = progress.getData if progress.isOk() == 0 else None
+    data = json.loads(progress.getData()) if progress.getOk() == 0 else None
     return progress.getErr_no(), progress.getFailed(), data
 
 
@@ -59,7 +59,7 @@ def get_result(task_id):
         result = lc.lfasrGetResult(task_id)
     except Exception as e:
         return read_api_exception(e)
-    data = result.getData if result.isOk() == 0 else None
+    data = json.loads(result.getData()) if result.getOk() == 0 else None
     return result.getErr_no(), result.getFailed(), data
 
 
