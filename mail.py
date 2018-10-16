@@ -23,7 +23,7 @@ def decode_header(s):
 
 def main():
     """ """
-    server = poplib.POP3(config.pop3_address)
+    server = poplib.POP3_SSL(config.pop3_address)
     server.user(config.pop3_user)
     server.pass_(config.pop3_password)
 
@@ -32,8 +32,8 @@ def main():
         try:
             resp, lines, octets = server.retr(i)
             message = message_from_bytes(b'\n'.join(lines))
-            subject = decode_header(message.get('subject'))
-            mailfrom = decode_header(message.get('from'))
+            subject = decode_header(message.get('Subject'))
+            mailfrom = decode_header(message.get('From'))
             date = parse(message.get('Date'), fuzzy=True)
             message_id = message.get('Message-ID')
             mail_model, created = models.MailModel.objects.get_or_create(message_id=message_id)
