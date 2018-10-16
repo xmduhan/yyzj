@@ -15,4 +15,4 @@ class MailAdmin(admin.ModelAdmin):
     """ """
 
 
-admin.site.register(models.MailModel, models.MailAdmin)
+admin.site.register(models.MailModel, MailAdmin)
