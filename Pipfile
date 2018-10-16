@@ -12,6 +12,7 @@ jupyter = "*"
 "py4j" = "*"
 django-extensions = "*"
 django-nose = "*"
+chardet = "*"
 
 [requires]
 python_version = "3.6"

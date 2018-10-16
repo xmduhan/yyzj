@@ -14,9 +14,17 @@ class LfasrModel(models.Model):
     data = models.TextField(null=True, blank=True)
 
 
+class MailModel(models.Model):
+    """ """
+    message_id = models.CharField(max_length=1024, primary_key=True)
+    mailfrom = models.CharField(max_length=1024, null=True, blank=True)
+    subject = models.CharField(max_length=1024, null=True, blank=True)
+    date = models.DateTimeField(null=True, blank=True)
+
+
 class BatchModel(models.Model):
     """ """
-    mail = models.CharField(max_length=1024)
+    mail = models.ForeignKey(MailModel, on_delete=models.SET_NULL, null=True, blank=True)
 
 
 class BatchItemModel(models.Model):
