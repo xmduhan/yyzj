@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+pop3_address = 'pop.server.cn'
+pop3_port = 995
+pop3_user = 'user@server.cn'
+pop3_password = '******'
+smtp_address = 'smtp.server.cn'
+smtp_port = 465
+smtp_user = 'user@server.cn'
+smtp_password = '******'
