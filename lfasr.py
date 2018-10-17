@@ -20,6 +20,10 @@ def add_task(filename):
     lfasr_model, created = LfasrModel.objects.get_or_create(md5=md5)
     if created:
         lfasr_model.__dict__.update(filename=filename, step='upload')
+        code, message, task_id = upload(lfasr_model.filename)
+        lfasr_model.__dict__.update(code=code, message=message, task_id=task_id)
+        if code == 0:
+            lfasr_model.step = 'processing'
         lfasr_model.save()
     return lfasr_model
 
@@ -68,16 +72,16 @@ def main():
     """ """
     while True:
 
-        # Upload wav file
-        for lfasr_model in LfasrModel.objects.filter(step='upload', code__isnull=True):
-            print(u'Upload file: filename=%s ... ' % lfasr_model.filename, end='')
-            code, message, task_id = upload(lfasr_model.filename)
-            lfasr_model.__dict__.update(code=code, message=message, task_id=task_id)
-            if code == 0:
-                lfasr_model.step = 'processing'
-            lfasr_model.save()
-            sleep(1)
-            print(u'(ok)')
+        # # Upload wav file
+        # for lfasr_model in LfasrModel.objects.filter(step='upload', code__isnull=True):
+        #     print(u'Upload file: filename=%s ... ' % lfasr_model.filename, end='')
+        #     code, message, task_id = upload(lfasr_model.filename)
+        #     lfasr_model.__dict__.update(code=code, message=message, task_id=task_id)
+        #     if code == 0:
+        #         lfasr_model.step = 'processing'
+        #     lfasr_model.save()
+        #     sleep(1)
+        #     print(u'(ok)')
 
         # Query progress
         for lfasr_model in LfasrModel.objects.filter(step='processing'):

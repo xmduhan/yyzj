@@ -18,3 +18,19 @@ class MailAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.MailModel, MailAdmin)
+
+
+class BatchAdmin(admin.ModelAdmin):
+    """ """
+    list_display = ['mail']
+
+
+admin.site.register(models.BatchModel, BatchAdmin)
+
+
+class BatchItemAdmin(admin.ModelAdmin):
+    """ """
+    list_display = ['batch', 'lfasr']
+
+
+admin.site.register(models.BatchItemModel, BatchItemAdmin)

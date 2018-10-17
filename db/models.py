@@ -25,9 +25,11 @@ class MailModel(models.Model):
 class BatchModel(models.Model):
     """ """
     mail = models.ForeignKey(MailModel, on_delete=models.SET_NULL, null=True, blank=True)
+    state = models.CharField(max_length=128, null=True, blank=True, choices=(('processing', '处理中'), ('finish', '完成')))
 
 
 class BatchItemModel(models.Model):
     """ """
+    filename = models.CharField(max_length=1024, null=True, blank=True)
     batch = models.ForeignKey(BatchModel, on_delete=models.CASCADE)
     lfasr = models.ForeignKey(LfasrModel, on_delete=models.SET_NULL, null=True, blank=True)
