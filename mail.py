@@ -182,9 +182,14 @@ def send_feedback():
 def main():
     """ """
     while True:
-        read_mail()
-        send_feedback()
-        sleep(5)
+        try:
+            read_mail()
+            send_feedback()
+            sleep(5)
+        except KeyboardInterrupt:
+            raise
+        except Exception as e:
+            print e
 
 
 if __name__ == "__main__":
